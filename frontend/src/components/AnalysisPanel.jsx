@@ -113,9 +113,9 @@ function AnovaResults({ data }) {
                       {row.F?.toFixed(3) || '—'}
                     </td>
                     <td className={`px-4 py-2 text-right font-mono text-sm ${
-                      row['PR(>F)'] < 0.05 ? 'text-[#00F0FF] font-semibold' : 'text-[#94A3B8]'
+                      (row.p_value !== null && row.p_value < 0.05) ? 'text-[#00F0FF] font-semibold' : 'text-[#94A3B8]'
                     }`}>
-                      {row['PR(>F)']?.toExponential(3) || '—'}
+                      {row.p_value !== null ? row.p_value.toExponential(3) : '—'}
                     </td>
                   </tr>
                 ))}
