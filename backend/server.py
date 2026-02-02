@@ -528,9 +528,9 @@ async def analyze_anova(request: AnalysisRequest):
         
         # Fit model
         if block_var:
-            formula = f'{dependent_var} ~ C({independent_var}) + C({block_var})'
+            formula = f'Q("{dependent_var}") ~ C(Q("{independent_var}")) + C(Q("{block_var}"))'
         else:
-            formula = f'{dependent_var} ~ C({independent_var})'
+            formula = f'Q("{dependent_var}") ~ C(Q("{independent_var}"))'
         
         model = ols(formula, data=df).fit()
         anova_table = sm.stats.anova_lm(model, typ=2)
