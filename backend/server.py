@@ -591,12 +591,12 @@ async def analyze_anova(request: AnalysisRequest):
                 "shapiro_wilk": {
                     "statistic": float(shapiro_stat),
                     "p_value": float(shapiro_p),
-                    "normal": shapiro_p > 0.05
+                    "normal": bool(shapiro_p > 0.05)
                 },
                 "levene": {
                     "statistic": float(levene_stat),
                     "p_value": float(levene_p),
-                    "homogeneous": levene_p > 0.05
+                    "homogeneous": bool(levene_p > 0.05)
                 }
             },
             "tukey_hsd": tukey_summary,
