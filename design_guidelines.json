@@ -1,0 +1,147 @@
+{
+  "identity": {
+    "name": "AGstat Lite",
+    "persona": "The Neon Lab - A PhD-level biostatistics assistant that looks like a cyberpunk command center.",
+    "tone": "Precision, Scientific, High-Tech, Slightly 'Retro-Future'",
+    "principles": [
+      "Data is the Art: The interface recedes, the data glows.",
+      "Terminal Chic: Embrace the aesthetic of high-end CLI tools but with GUI usability.",
+      "Neon Guidance: Use color only to guide attention (Results = Neon Blue, Errors = Sharp Red).",
+      "Density is Good: Researchers need context. Don't hide data behind too much whitespace."
+    ]
+  },
+  "typography": {
+    "fonts": {
+      "heading": "Chivo, sans-serif",
+      "body": "IBM Plex Sans, sans-serif",
+      "code": "JetBrains Mono, monospace"
+    },
+    "weights": {
+      "heading": "900",
+      "subheading": "700",
+      "body": "400",
+      "bold": "600"
+    },
+    "sizes": {
+      "h1": "text-5xl md:text-7xl tracking-tighter",
+      "h2": "text-3xl md:text-4xl tracking-tight",
+      "h3": "text-xl md:text-2xl font-bold",
+      "body": "text-base leading-relaxed",
+      "small": "text-sm text-slate-400",
+      "code": "text-sm"
+    }
+  },
+  "colors": {
+    "theme": "dark",
+    "palette": {
+      "background": {
+        "default": "#020408",
+        "paper": "#0B1121",
+        "subtle": "#1E293B"
+      },
+      "foreground": {
+        "default": "#F8FAFC",
+        "muted": "#94A3B8",
+        "inverse": "#020408"
+      },
+      "primary": {
+        "default": "#00F0FF",
+        "hover": "#00CCFF",
+        "foreground": "#000000"
+      },
+      "secondary": {
+        "default": "#3B82F6",
+        "foreground": "#FFFFFF"
+      },
+      "accent": {
+        "default": "#22D3EE",
+        "glow": "rgba(0, 240, 255, 0.5)"
+      },
+      "status": {
+        "success": "#10B981",
+        "warning": "#F59E0B",
+        "error": "#EF4444",
+        "info": "#3B82F6"
+      },
+      "charts": [
+        "#00F0FF",
+        "#3B82F6",
+        "#10B981",
+        "#F59E0B",
+        "#8B5CF6"
+      ]
+    }
+  },
+  "layout": {
+    "grid": {
+      "dashboard": "grid grid-cols-1 md:grid-cols-12 gap-4 p-4 h-screen overflow-hidden",
+      "landing": "flex flex-col min-h-screen"
+    },
+    "spacing": {
+      "container_padding": "p-6 md:p-8",
+      "section_gap": "gap-8",
+      "component_gap": "gap-4"
+    },
+    "containers": {
+      "card": "bg-slate-950/50 backdrop-blur-md border border-slate-800/60 rounded-sm",
+      "panel": "h-full overflow-y-auto bg-slate-950/80 border-r border-slate-800"
+    }
+  },
+  "components": {
+    "buttons": {
+      "primary": "bg-cyan-400 text-black hover:bg-cyan-300 font-bold rounded-sm shadow-[0_0_15px_rgba(0,240,255,0.3)] transition-all hover:shadow-[0_0_25px_rgba(0,240,255,0.5)] uppercase tracking-wider text-xs",
+      "secondary": "bg-slate-800 text-white hover:bg-slate-700 border border-slate-700 rounded-sm uppercase tracking-wider text-xs",
+      "ghost": "hover:bg-slate-800/50 text-slate-400 hover:text-cyan-400"
+    },
+    "inputs": {
+      "default": "bg-slate-950 border-slate-800 focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 rounded-sm text-slate-200 placeholder:text-slate-600 font-mono"
+    },
+    "cards": {
+      "default": "bg-slate-900/40 border border-slate-800 rounded-sm p-6 hover:border-slate-700 transition-colors"
+    },
+    "chat": {
+      "bubble_user": "bg-slate-800 text-slate-100 rounded-lg rounded-tr-none p-3 max-w-[80%]",
+      "bubble_ai": "bg-cyan-950/30 border border-cyan-900/50 text-cyan-100 rounded-lg rounded-tl-none p-3 max-w-[80%]"
+    }
+  },
+  "visual_enhancers": {
+    "glassmorphism": "backdrop-blur-xl bg-black/40 border border-white/10",
+    "neon_glow": "shadow-[0_0_10px_rgba(0,240,255,0.2)]",
+    "grid_background": "bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]",
+    "scanlines": "bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%),linear-gradient(90deg,rgba(255,0,0,0.06),rgba(0,255,0,0.02),rgba(0,0,255,0.06))]"
+  },
+  "assets": {
+    "images": {
+      "hero_bg": "https://images.unsplash.com/photo-1762279389006-43963a0cee55?crop=entropy&cs=srgb&fm=jpg&q=85",
+      "abstract_data": "https://images.unsplash.com/photo-1767477665602-ab4e96be7701?crop=entropy&cs=srgb&fm=jpg&q=85",
+      "dna_art": "https://images.unsplash.com/photo-1739054730201-4b6463484e3c?crop=entropy&cs=srgb&fm=jpg&q=85"
+    },
+    "icons": "lucide-react"
+  },
+  "libraries": {
+    "charts": "recharts",
+    "motion": "framer-motion",
+    "icons": "lucide-react",
+    "ui": "shadcn/ui",
+    "notifications": "sonner",
+    "markdown": "react-markdown"
+  },
+  "instructions_to_main_agent": [
+    "Implement the 'Neon Lab' theme strictly. No white backgrounds.",
+    "Use the 'grid_background' class on the main dashboard container for that technical feel.",
+    "The Chat Interface should feel like a terminal or a high-end communication log.",
+    "Plots must use the custom neon color palette defined in 'colors.palette.charts'.",
+    "Ensure all interactive elements have hover states that increase brightness or add a glow.",
+    "Use 'Chivo' for all headings and 'IBM Plex Sans' for body text. Import them from Google Fonts.",
+    "For the file upload, create a dedicated 'Drop Zone' with a dashed neon border.",
+    "The 'Code Execution' panel should look like a VS Code terminal (dark bg, monospace font)."
+  ],
+  "universal_guidelines": [
+    "Do not use gradients for text.",
+    "Ensure high contrast for accessibility (Neon Blue on Black is good, but check grey text).",
+    "Use 'sonner' for all toast notifications.",
+    "All interactive elements must have 'data-testid'.",
+    "Do not center align the app container.",
+    "Use 'framer-motion' for smooth panel transitions."
+  ]
+}
