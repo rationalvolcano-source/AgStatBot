@@ -1099,7 +1099,7 @@ async def analyze_normality(request: AnalysisRequest):
             results["tests"]["overall"] = {
                 "shapiro_statistic": float(stat),
                 "p_value": float(p),
-                "normal": p > 0.05,
+                "normal": bool(p > 0.05),
                 "n": len(data)
             }
             
