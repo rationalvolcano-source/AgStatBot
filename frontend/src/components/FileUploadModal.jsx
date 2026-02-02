@@ -1,14 +1,12 @@
 import React, { useCallback } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { X, Upload, FileSpreadsheet, AlertCircle } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { motion } from 'framer-motion';
+import { Upload, FileSpreadsheet, AlertCircle } from 'lucide-react';
 import {
   Dialog,
   DialogContent,
   DialogHeader,
   DialogTitle,
 } from '@/components/ui/dialog';
-import { useDropzone } from 'react-dropzone';
 
 // Simple dropzone implementation without the library
 function useSimpleDropzone({ onDrop, accept, maxSize }) {
