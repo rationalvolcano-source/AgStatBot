@@ -102,7 +102,7 @@ function AnovaResults({ data }) {
               <tbody>
                 {anova_table.map((row, index) => (
                   <tr key={index} className="border-t border-[#1E293B] hover:bg-[#1E293B]/30">
-                    <td className="px-4 py-2 text-[#F8FAFC] text-sm">{row.index}</td>
+                    <td className="px-4 py-2 text-[#F8FAFC] text-sm">{row.source || row.index}</td>
                     <td className="px-4 py-2 text-right text-[#94A3B8] font-mono text-sm">
                       {row.sum_sq?.toFixed(3) || '—'}
                     </td>
