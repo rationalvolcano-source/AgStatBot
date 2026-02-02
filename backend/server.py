@@ -920,9 +920,22 @@ async def analyze_descriptive(request: AnalysisRequest):
             ax.set_title(f'Mean {columns[0]} by {group_by} (±SD)', fontsize=16, color='#00F0FF')
             ax.grid(True, alpha=0.3, axis='y')
             
+            # Convert multi-index to serializable format
+            stats_dict = {}
+            for col in columns:
+                stats_dict[col] = {}
+                for group in stats_df.index:
+                    stats_dict[col][str(group)] = {
+                        "mean": float(stats_df.loc[group, (col, 'mean')]) if pd.notna(stats_df.loc[group, (col, 'mean')]) else None,
+                        "std": float(stats_df.loc[group, (col, 'std')]) if pd.notna(stats_df.loc[group, (col, 'std')]) else None,
+                        "min": float(stats_df.loc[group, (col, 'min')]) if pd.notna(stats_df.loc[group, (col, 'min')]) else None,
+                        "max": float(stats_df.loc[group, (col, 'max')]) if pd.notna(stats_df.loc[group, (col, 'max')]) else None,
+                        "count": int(stats_df.loc[group, (col, 'count')])
+                    }
+            
             results = {
                 "grouped_by": group_by,
-                "statistics": stats_df.to_dict()
+                "statistics": stats_dict
             }
         else:
             # Overall statistics
