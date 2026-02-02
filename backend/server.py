@@ -581,8 +581,18 @@ async def analyze_anova(request: AnalysisRequest):
         # Generate code
         code = generate_anova_code(dependent_var, independent_var, block_var)
         
-        # Prepare results
-        anova_results = anova_table.reset_index().to_dict(orient='records')
+        # Prepare results - convert pandas objects to JSON-serializable format
+        anova_df = anova_table.reset_index()
+        anova_df.columns = ['source', 'sum_sq', 'df', 'F', 'p_value']
+        anova_results = []
+        for _, row in anova_df.iterrows():
+            anova_results.append({
+                "source": str(row['source']),
+                "sum_sq": float(row['sum_sq']) if pd.notna(row['sum_sq']) else None,
+                "df": float(row['df']) if pd.notna(row['df']) else None,
+                "F": float(row['F']) if pd.notna(row['F']) else None,
+                "p_value": float(row['p_value']) if pd.notna(row['p_value']) else None
+            })
         tukey_summary = str(tukey)
         
         results = {
