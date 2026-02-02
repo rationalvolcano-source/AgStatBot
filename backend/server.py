@@ -958,8 +958,16 @@ async def analyze_descriptive(request: AnalysisRequest):
                 ax.legend()
                 ax.grid(True, alpha=0.3)
             
+            # Convert to serializable format
+            stats_dict = {}
+            for col in stats_df.columns:
+                stats_dict[str(col)] = {}
+                for stat in stats_df.index:
+                    val = stats_df.loc[stat, col]
+                    stats_dict[str(col)][str(stat)] = float(val) if pd.notna(val) else None
+            
             results = {
-                "statistics": stats_df.to_dict()
+                "statistics": stats_dict
             }
         
         plt.tight_layout()
